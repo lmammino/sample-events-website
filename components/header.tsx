@@ -61,7 +61,7 @@ export default function Header() {
             </Button>
           ) : (
             <Button variant="ghost" size="sm" className="hover:text-primary hover:bg-primary/10">
-              <Link href={session ? "/reservations" : "/auth/login"}>{session ? "My Account" : "Sign In"}</Link>
+              <Link href={session ? "/reservations" : "/auth/login"}>{session ? "My Reservations" : "Sign In"}</Link>
             </Button>
           )}
         </div>

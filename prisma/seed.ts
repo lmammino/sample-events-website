@@ -2,7 +2,7 @@ import { hash } from "bcrypt"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
-const futureYear = new Date().getFullYear() + 1
+const futureYear = new Date().getFullYear() + 6
 
 async function main() {
   try {

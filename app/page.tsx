@@ -25,9 +25,6 @@ export default async function Home() {
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
             <Link href="/events">Browse All Events</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-            <Link href="/auth/login">Sign In</Link>
-          </Button>
         </div>
       </div>
 
