@@ -25,8 +25,6 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        console.log("credentials", credentials)
-
         const user = await db.user.findUnique({
           where: {
             email: credentials.email,
