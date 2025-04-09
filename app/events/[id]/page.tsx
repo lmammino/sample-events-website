@@ -8,7 +8,8 @@ import { formatDate } from "@/lib/utils"
 import ReserveButton from "@/components/reserve-button"
 
 export default async function EventPage({ params }: { params: { id: string } }) {
-  const event = await getEventById(params.id)
+  const eventId = (await params).id
+  const event = await getEventById(eventId)
 
   if (!event) {
     notFound()

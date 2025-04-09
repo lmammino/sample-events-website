@@ -23,10 +23,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Check if user is logged in
     const checkAuth = async () => {
       try {
-        const response = await fetch("/api/auth/me")
+        const response = await fetch("/api/auth/session")
         if (response.ok) {
           const userData = await response.json()
-          setUser(userData)
+          setUser(userData.user)
         }
       } catch (error) {
         console.error("Failed to fetch user", error)
