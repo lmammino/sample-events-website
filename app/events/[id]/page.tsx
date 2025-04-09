@@ -62,6 +62,8 @@ export default async function EventPage({ params }: { params: { id: string } }) 
               </Badge>
               <p className="text-lg font-bold">{event.price === 0 ? "Free" : `$${event.price}`}</p>
             </div>
+
+            {/* TODO: if the current user has already reserved this event the button should be disabled and with a different label */}
             <ReserveButton eventId={event.id} disabled={event.availableCapacity === 0} />
           </Card>
         </div>

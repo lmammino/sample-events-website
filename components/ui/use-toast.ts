@@ -171,6 +171,7 @@ function toast({ ...props }: Toast) {
   }
 }
 
+// TODO: investigate why this doesn't work
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
