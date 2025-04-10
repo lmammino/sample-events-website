@@ -1,18 +1,22 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import EventList from "@/components/event-list"
-import { getEvents } from "@/lib/data"
+import { getEvents, getUserReservations, hasUserReservedEvent } from "@/lib/data"
+import { getCurrentUser } from "@/lib/auth"
 import BookCoverImage from "@/components/images/nodejs-design-patterns.jpg"
 import Image from 'next/image'
 
 export default async function Home() {
   const events = await getEvents()
+  const user = await getCurrentUser()
 
   // Get upcoming events (sorted by date)
   const upcomingEvents = [...events]
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .filter((event) => new Date(event.date) >= new Date())
     .slice(0, 6)
+
+  const reservedEvents = user ? await getUserReservations(user.id) : []
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -30,7 +34,10 @@ export default async function Home() {
 
       <div className="my-8">
         <h2 className="text-2xl font-bold mb-6">Upcoming Events</h2>
-        <EventList events={upcomingEvents} />
+        <EventList
+          events={upcomingEvents}
+          reservedEvents={reservedEvents}
+        />
 
         <div className="mt-8 text-center">
           <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
@@ -47,13 +54,13 @@ export default async function Home() {
                 Includes Free Chapter
               </div>
               <a href="https://nodejsdesignpatterns.com" target="_blank" rel="noopener noreferrer">
-              <Image
-                src={BookCoverImage}
-                alt="Node.js Design Patterns, 4th Edition"
-                width={250}
-                height={375}
-                className="rounded-md shadow-lg"
-              />
+                <Image
+                  src={BookCoverImage}
+                  alt="Node.js Design Patterns, 4th Edition"
+                  width={250}
+                  height={375}
+                  className="rounded-md shadow-lg"
+                />
               </a>
             </div>
 

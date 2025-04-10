@@ -42,6 +42,17 @@ export async function getUserReservations(userId: string): Promise<Reservation[]
   }))
 }
 
+export async function hasUserReservedEvent(userId: string, eventId: string): Promise<boolean> {
+  const reservation = await db.reservation.findFirst({
+    where: {
+      userId,
+      eventId,
+    },
+  })
+
+  return !!reservation
+}
+
 // Helper function to format dates and ensure consistent types
 function formatEvent(event: any): Event {
   return {

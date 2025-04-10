@@ -4,9 +4,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CalendarIcon, MapPinIcon } from "lucide-react"
 import { formatDate } from "@/lib/utils"
-import type { Event } from "@/lib/types"
+import type { Event, Reservation } from "@/lib/types"
 
-export default function EventList({ events }: { events: Event[] }) {
+export default function EventList({ events, reservedEvents }: { events: Event[], reservedEvents?: Reservation[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {events.map((event) => (
@@ -14,6 +14,7 @@ export default function EventList({ events }: { events: Event[] }) {
           <Card className="h-full overflow-hidden hover:shadow-md transition-shadow border-2 border-transparent hover:border-primary/10">
             <div className="relative h-48 w-full">
               <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+              {reservedEvents?.some((reservation) => reservation.eventId === event.id) && (<Badge className="absolute top-2 right-2 bg-green-500 text-white">Booked</Badge>)}
               {event.price === 0 && <Badge className="absolute top-2 right-2 bg-primary text-white">Free</Badge>}
               {event.availableCapacity === 0 && (
                 <div className="absolute inset-0 bg-black/60 flex items-center justify-center">

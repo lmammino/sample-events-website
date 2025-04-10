@@ -10,9 +10,11 @@ import { reserveEvent } from "@/lib/actions"
 export default function ReserveButton({
   eventId,
   disabled = false,
+  hasReserved = false,
 }: {
   eventId: string
   disabled?: boolean
+  hasReserved?: boolean
 }) {
   const [isLoading, setIsLoading] = useState(false)
   const { data: session } = useSession()
@@ -52,7 +54,7 @@ export default function ReserveButton({
       className="w-full bg-primary hover:bg-primary/90"
       size="lg"
     >
-      {isLoading ? "Processing..." : "Reserve your spot"}
+      {isLoading ? "Processing..." : hasReserved ? "You have booked this event!" : "Reserve your spot"}
     </Button>
   )
 }
