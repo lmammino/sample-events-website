@@ -1,13 +1,11 @@
 # EventHub: A sample Events Website
 
-<div style="float: right; width: 300px; margin-left: 20px;">
-  <a href="https://nodejsdesignpatterns.com" target="_blank" rel="noopener noreferrer">
-    <img src="components/images/nodejs-design-patterns.jpg" alt="Node.js Design Patterns, 4th Edition" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  </a>
-</div>
+<a href="https://nodejsdesignpatterns.com" target="_blank" rel="noopener noreferrer">
+  <img width="240" align="right" src="components/images/nodejs-design-patterns.jpg" alt="Node.js Design Patterns, 4th Edition" style="margin-left: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+</a>
 
-This website is a demo project from the book **Node.js Design Patterns (4th
-Edition)** by [Mario Casciaro](https://mario.fyi/) and
+This website is a demo project from the book **[Node.js Design Patterns (4th
+Edition)](https://nodejsdesignpatterns.com)** by [Mario Casciaro](https://mario.fyi/) and
 [Luciano Mammino](https://loige.co/). The book is your guide to building
 scalable, reliable Node.js applications using proven patterns and real-world
 techniques.
