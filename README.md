@@ -55,7 +55,19 @@ Follow these steps to run the application locally:
    node prisma/seed.ts
    ```
 
-5. **Start the development server**:
+5. **Set up environment variables**: Create a `.env` file in the root of the
+   project and add the following line:
+   ```plaintext
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+   You can also set `NEXTAUTH_SECRET` to a random string for local development.
+   You can generate a random secret using the following command:
+   ```bash
+   openssl rand -base64 42
+   ```
+   Alternatively, you can use the provided `.env.example` as a template.
+
+6. **Start the development server**:
    ```bash
    pnpm dev
    ```
