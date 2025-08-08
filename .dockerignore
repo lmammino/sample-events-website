@@ -3,5 +3,6 @@ npm-debug.log
 dist
 .next
 .env
+.env.example
 .DS_Store
 prisma/db.sqlite*
